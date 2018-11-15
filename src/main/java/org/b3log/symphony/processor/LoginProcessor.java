@@ -287,7 +287,7 @@ public class LoginProcessor {
             response.sendRedirect(Latkes.getServePath());
             return;
         }
-      //zhushi
+      //注释内容
         final AbstractFreeMarkerRenderer renderer = new SkinRenderer(request);
         context.setRenderer(renderer);
 
