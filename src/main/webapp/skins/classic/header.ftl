@@ -107,8 +107,9 @@
                 </ul>
             </div>
         <#else>
-            <a href="javascript: Util.goLogin();" class="unlogin">${loginLabel}</a>
+            <a href="javascript:Util.goLogin();" class="unlogin">${loginLabel}</a>
             <a href="javascript:Util.goRegister()" class="unlogin">${registerLabel}</a>
+            <a href="javascript:Util.goLogin2()" class="unlogin">测试连接地址</a>
         </#if>
     </div>
 </div>

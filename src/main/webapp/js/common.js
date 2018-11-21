@@ -1080,7 +1080,7 @@ var Util = {
     if (-1 !== location.href.indexOf("/login")) {
       return;
     }
-
+  
     var gotoURL = location.href;
     if (location.search.indexOf('?goto') === 0) {
       gotoURL = location.href.replace(location.search, '');
@@ -1107,6 +1107,13 @@ var Util = {
     }
     window.location.href = Label.servePath + "/register?goto=" + encodeURIComponent(gotoURL);
   },
+  
+  goLogin2: function () {
+	var gotoURL = location.href;
+	
+	window.location.href = Label.servePath + "/login2?goto=" + encodeURIComponent(gotoURL);
+  },
+  
   /**
    * @description 禁止 IE7 以下浏览器访问
    */
@@ -1222,10 +1229,11 @@ var Util = {
     }
 
     this._initCommonHotKey();
-    console.log(
-      '%cHacPai%c\n  平等、自由、奔放\n  Feel easy about trust.\n\n  b3log.org & hacpai.com\n  Copyright © 2012-' +
-      Label.year,
-      'font-size:96px;color:#3b3e43', 'font-size:12px;color:rgba(0,0,0,0.38);');
+//    console.log(
+//      '%cHacPai%c\n  平等、自由、奔放\n  Feel easy about trust.\n\n  b3log.org & hacpai.com\n  Copyright © 2012-' +
+//      Label.year,
+//      'font-size:96px;color:#3b3e43', 'font-size:12px;color:rgba(0,0,0,0.38);');
+    
     if (isLoggedIn) {
       return false;
     }

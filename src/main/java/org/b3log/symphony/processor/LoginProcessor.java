@@ -287,7 +287,7 @@ public class LoginProcessor {
             response.sendRedirect(Latkes.getServePath());
             return;
         }
-      //注释内容
+      
         final AbstractFreeMarkerRenderer renderer = new SkinRenderer(request);
         context.setRenderer(renderer);
 
@@ -307,7 +307,22 @@ public class LoginProcessor {
 
         dataModelService.fillHeaderAndFooter(request, response, dataModel);
     }
+    
+    @RequestProcessing(value = "/login2", method = HTTPRequestMethod.GET)
+    @Before(adviceClass = StopwatchStartAdvice.class)
+    @After(adviceClass = {PermissionGrant.class, StopwatchEndAdvice.class})
+    public void showLogin2(final HTTPRequestContext context, final HttpServletRequest request, final HttpServletResponse response) 
+    		throws Exception {
+    	AbstractFreeMarkerRenderer renderer = new SkinRenderer(request);
+    	context.setRenderer(renderer);
+    	String referer = request.getParameter(Common.GOTO);
+    	renderer.setTemplateName("verify/login2.ftl");
+    	final Map<String, Object> dataModel = renderer.getDataModel();
+        dataModel.put(Common.GOTO, referer);
 
+        dataModelService.fillHeaderAndFooter(request, response, dataModel);
+    	
+    }
     /**
      * Shows forget password page.
      *
